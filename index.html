@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"
+              ><img src="logo.png" alt="Spotify logo" /><span>Spotify</span></a
+            >
+          </li>
+          <li>Home</li>
+          <li>About</li>
+        </ul>
+      </nav>
+      <section class="container">
+        <div class="songsContainer">
+          <h1>Your Playlist</h1>
+          <br />
+          <div class="d-flex">
+            <div class="songList"></div>
+            <div class="songBanner"></div>
+          </div>
+        </div>
+      </section>
+      <section class="bottom">
+        <input
+          type="range"
+          name="range"
+          id="range"
+          value="0"
+          min="0"
+          max="100"
+        />
+        <div class="icons">
+          <button id="prev"><i class="ri-arrow-left-circle-line"></i></button>
+          <button id="play"><i class="ri-play-circle-line"></i></button>
+          <button id="next"><i class="ri-arrow-right-circle-line"></i></button>
+        </div>
+        <div class="songInfo">
+          <img src="playing.gif" id="giffy" width="50px" alt="" />
+          <span id="currentSongInfo"></span>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

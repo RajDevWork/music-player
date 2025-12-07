@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: black;
+}
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: black;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+nav > ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 20px;
+  padding: 10px 10px;
+}
+nav > ul a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  gap: 5px;
+  font-size: 1.3rem;
+}
+nav img {
+  width: 44px;
+}
+.container {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: #222;
+}
+.songsContainer {
+  background-image: url("bg.jpg");
+  width: 80%;
+  height: 100%;
+  border-radius: 20px;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 20px;
+  overflow: scroll;
+}
+.songItems {
+  display: flex;
+  background-color: #ffffffe5;
+  padding: 3px 20px;
+  border-radius: 30px;
+  color: black;
+  align-items: center;
+  gap: 30px;
+  justify-content: space-between;
+}
+.songItems img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.songItems h4 {
+  font-size: 15px;
+}
+.d-flex {
+  display: flex;
+}
+.songList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bottom {
+  padding: 20px 10px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  position: sticky;
+  bottom: 0;
+}
+#range {
+  width: 80vw;
+}
+.bottom .icons,
+.icons button {
+  font-size: 3rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+.songItems button {
+  background-color: transparent;
+  border: none;
+}
+.icons i {
+  cursor: pointer;
+}
+.icons button:active,
+.songItems button:active {
+  scale: 0.95;
+}
+.songInfo {
+  position: absolute;
+  left: 10vw;
+  transition: all 0.3s ease;
+}
+#giffy {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+@property --madAngle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes animateBox {
+  from {
+    --madAngle: 0deg;
+  }
+  to {
+    --madAngle: 360deg;
+  }
+}
+@keyframes smoothScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.active {
+  color: rgb(255, 0, 123);
+  box-shadow: 0px 0px 4px rgb(255, 0, 123);
+  transition: transform 10s ease;
+  border: 2px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+
+  background: linear-gradient(black) padding-box,
+    conic-gradient(from var(--madAngle), black, rgb(255, 0, 123), black)
+      border-box;
+  animation: animateBox 5s linear infinite;
+  animation-iteration-count: infinite;
+  scale: 1.01;
+}
+.active i {
+  color: rgb(255, 0, 123);
+}
+/* ===========================
+   📱 Mobile Responsive Styles
+   =========================== */
+
+/* Tablet & Small Devices (<= 768px) */
+@media (max-width: 768px) {
+  nav > ul {
+    gap: 10px;
+    padding: 8px;
+  }
+
+  nav > ul a {
+    font-size: 1.1rem;
+  }
+
+  .songsContainer {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .songItems {
+    padding: 5px 12px;
+    gap: 15px;
+  }
+
+  #range {
+    width: 90vw;
+  }
+
+  .icons button {
+    font-size: 2.3rem;
+  }
+  .container{
+    background-position: center;
+  }
+
+  .songInfo {
+    left: 5vw;
+  }
+}
+
+/* Mobile Phones (<= 480px) */
+@media (max-width: 480px) {
+  .container{
+    background-position: center;
+  }
+  nav img {
+    width: 35px;
+  }
+
+  nav > ul {
+    gap: 8px;
+  }
+
+  nav > ul a {
+    font-size: 1rem;
+    gap: 3px;
+  }
+
+  .songsContainer {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .songItems {
+    padding: 6px 10px;
+    gap: 10px;
+    border-radius: 20px;
+  }
+
+  .songItems img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .songItems h4 {
+    font-size: 13px;
+  }
+
+  .icons button {
+    font-size: 2rem;
+  }
+
+  #range {
+    width: 95vw;
+    margin-bottom: 10px;
+  }
+
+  .bottom {
+    padding: 15px 5px;
+  }
+
+  .songInfo {
+    left: 21vw;
+    font-size: 0.9rem;
+    bottom: 7vh;
+  }
+}
